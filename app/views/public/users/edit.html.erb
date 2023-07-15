@@ -1,0 +1,32 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <h4><strong style="background-color:#EEEEEE;">UserInfomation</strong></h4>
+      <%= form_with model: @user, url: update_information_path do |f| %>
+        <%= render 'public/shared/error_messages', resource: @user %>
+        <table class="user_info user_form">
+          <thead>
+            <th></th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tbody>
+            <tr>
+              <td><%= f.label :name, class: "user_name" %></td>
+              <td colspan="2"><%= f.text_field :name %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :email, "メールアドレス" %></td>
+              <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
+            </tr>
+            <tr>
+              <td colspan="2"><%= f.submit "編集内容を保存する", class: "btn btn-primary" %></td>
+              <td><%= link_to "退会する", confirm_confirmation_path, class: "btn btn-danger" %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
