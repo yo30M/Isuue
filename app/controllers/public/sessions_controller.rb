@@ -33,8 +33,8 @@ class Public::SessionsController < Devise::SessionsController
     root_path
   end
 
-  def reject_inactive_customer
-    @user = User.find_by(email: params[:uesr][:email])
+  def reject_inactive_user
+    @user = User.find_by(email: params[:user][:email])
     if @user
       if @user.valid_password?(params[:user][:password]) && @user.is_deleted
         flash[:danger] = 'お客様は退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'

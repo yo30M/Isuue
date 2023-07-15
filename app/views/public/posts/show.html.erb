@@ -1,0 +1,11 @@
+<div>
+  <%= image_tag @post.get_image(100,100) %>
+  <p>投稿ユーザー：<%= @post.user.name %></p>
+  <p>住所：<%= @post.address %></p>
+  <p>座り心地：<%= @post.comfort %></p>
+  <p>周辺情報：<%= @post.environment %></p>
+  <% if @post.user == current_user %>
+    <%= link_to "編集", edit_post_path(@post) %>
+    <%= link_to "削除", post_path(@post), method: :delete %>
+  <% end %>
+</div>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get 'users/confirmation' => 'users#confirmation', as: 'confirm_confirmation'
     put 'users/information' => 'users#update'
     patch 'users/withdrawal' => 'users#withdrawal', as: 'withdrawal_user'
+    resources :posts, only:[:edit, :index, :show, :create, :update, :new, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

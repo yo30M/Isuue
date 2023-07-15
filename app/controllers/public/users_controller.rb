@@ -3,6 +3,8 @@ class Public::UsersController < ApplicationController
   before_action :set_current_user
 
   def show
+    @user = current_user
+    @posts = @user.posts
   end
 
   def edit

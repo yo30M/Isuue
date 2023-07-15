@@ -18,6 +18,21 @@
         <td>メールアドレス</td>
         <td><%= current_user.email %></td>
       </tr>
+      <tr>
+        <td>
+          <% @posts.each do |post| %>
+            <div>
+              <%= link_to post_path(post.id) do %>
+                <%= image_tag post.get_image(100,100) %>
+              <% end %>
+              <p>投稿ユーザー：<%= post.user.name %></p>
+              <p>住所：<%= post.address %></p>
+              <p>座り心地：<%= post.comfort %></p>
+              <p>周辺情報：<%= post.environment %></p>
+            </div>
+          <% end %>
+        </td>
+      </tr>
     </table>
   </div>
 </div>
