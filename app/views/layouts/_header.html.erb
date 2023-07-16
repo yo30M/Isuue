@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <%= link_to root_path do %>
-          <i class="fa-solid fa-chair"></i>
+          <i class="fa-solid fa-chair" ></i>
         <% end %>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
 
-        <!--会員ログイン後ヘッダー-->
+        <!--ログイン後ヘッダー-->
         <% if user_signed_in? %>
           <li>
             <%= link_to '投稿フォーム', new_post_path, class: 'nav-link text-dark btn btn-light ml-5'  %>

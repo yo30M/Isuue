@@ -57,8 +57,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # 認証機能
 gem 'devise'
 # ページネーション
-gem 'kaminari'
+gem 'kaminari','~> 1.2.1'
 # 環境変数の管理
 gem 'dotenv-rails'
 # エラーメッセージの日本語化
 gem 'rails-i18n'
+gem 'font-awesome-sass'
