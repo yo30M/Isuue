@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  scope :only_active, -> { where(is_deleted: false) }
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
 
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true

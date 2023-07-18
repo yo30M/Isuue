@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
+  namespace :admin do
+   root to: "homes#top"
+   get 'users/:user_id/posts' => 'posts#index', as: 'user_posts'
+   resources :users, only: [:index, :show, :edit, :update]
+  end
+  
   devise_for :users,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -15,6 +21,7 @@ Rails.application.routes.draw do
     get 'users/confirmation' => 'users#confirmation', as: 'confirm_confirmation'
     put 'users/information' => 'users#update'
     patch 'users/withdrawal' => 'users#withdrawal', as: 'withdrawal_user'
+    get "search" => "searches#search"
     resources :posts, only:[:edit, :index, :show, :create, :update, :new, :destroy] do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]

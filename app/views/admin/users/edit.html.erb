@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="title pt-4">
+      <h4><%= @user.name %>さんの会員情報編集</h4>
+    </div>
+  </div>
+  <div>
+    <%= flash[:alert] %>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <%= form_with model: @user, url: admin_user_path(@user), method: :patch do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <th>ID</th>
+          <td><%= @user.id %></td>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <td><%= f.text_field :name, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <th>E-mail</th>
+          <td><%= f.text_field :email, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <th>Status</th>
+          <td>
+            <%= f.radio_button :is_deleted, false %>
+            <%= f.label :有効 %>
+            <%= f.radio_button :is_deleted, true %>
+            <%= f.label :退会 %>
+          </td>
+        </tr>
+        <tr>
+          <th></th>
+          <td><%= f.submit "変更を保存", class: "btn btn-success" %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
