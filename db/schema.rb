@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2023_07_20_013255) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "taggings_count", default: 0
-    t.index ["name"], name: "index_tags_on_name", unique: true
+    t.index ["name"], name: "index_tags_on_name"
   end
 
   create_table "users", force: :cascade do |t|
