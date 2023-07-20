@@ -1,6 +1,9 @@
 class Public::PostsController < ApplicationController
   def index
     @posts = Post.all
+    if params[:tag_name]
+      @posts = Post.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def create
@@ -42,7 +45,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:address, :image, :comfort, :environment)
+    params.require(:post).permit(:address, :image, :comfort, :environment, :tag_list)
   end
 
 end
