@@ -25,6 +25,7 @@
           <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
         </div>
       <% end %>
+      <%= link_to "いいねした投稿", favorited_posts_path %>
     </div>
   </div>
 </div>

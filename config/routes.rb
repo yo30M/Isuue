@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    get 'users/:user_id/posts' => 'posts#index', as: 'user_posts'
    resources :users, only: [:index, :show, :edit, :update]
   end
-  
+
   devise_for :users,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     put 'users/information' => 'users#update'
     patch 'users/withdrawal' => 'users#withdrawal', as: 'withdrawal_user'
     get "search" => "searches#search"
+    get 'users/favorites' => 'users#favorites', as: 'favorited_posts'
     resources :posts, only:[:edit, :index, :show, :create, :update, :new, :destroy] do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
