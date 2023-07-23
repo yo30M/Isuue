@@ -6,6 +6,9 @@ Rails.application.routes.draw do
    root to: "homes#top"
    get 'users/:user_id/posts' => 'posts#index', as: 'user_posts'
    resources :users, only: [:index, :show, :edit, :update]
+   resources :posts, only: [:index, :show, :destroy] do
+     resources :comments, only: [:destroy]
+   end
   end
 
   devise_for :users,skip: [:passwords], controllers: {
