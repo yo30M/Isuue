@@ -1,0 +1,32 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 offset-md-1'>
+  		<h2>投稿情報</h2>
+  		<table class='table'>
+  		  <tr>
+          <td>
+            <%= image_tag @post.get_image(100,100) %>
+          </td>
+          <td><p>投稿ユーザー：<%= @post.user.name %></p></td>
+          <td><p>住所：<%= @post.address %></p></td>
+          <td><p>座り心地：<%= @post.comfort %></p></td>
+          <td><p>周辺情報：<%= @post.environment %></p></td>
+          <td><% @post.tag_list.each do |tag|%>
+            <div class="btn btn-primary">
+              <%= link_to tag, admin_posts_path(tag_name: tag), class: "text-white" %><% end %>
+            </div>
+          </td>
+          <%= link_to "削除", admin_post_path(@post), method: :delete %>
+        </tr>
+      </table>
+      <div>
+        <p>コメント件数：<%= @post.comments.count %></p>
+          <% @post.comments.each do |comment| %>
+            <%= comment.user.name %>
+            <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+            <%= link_to "削除", admin_post_comment_path(comment.post, comment), method: :delete %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

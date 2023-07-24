@@ -1,0 +1,21 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-12 offset-md-1'>
+      <h2>投稿一覧</h2>
+      <% @posts.each do |post| %>
+        <div>
+          <%= link_to admin_post_path(post.id) do %>
+            <%= image_tag post.get_image(100,100) %>
+          <% end %>
+          <p>投稿ユーザー：<%= post.user.name %></p>
+          <p><%= link_to "#{post.comments.count} コメント", admin_post_path(post.id) %></p>
+          <% post.tag_list.each do |tag|%>
+            <div class="btn btn-primary">
+              <%= link_to tag, admin_posts_path(tag_name: tag), class: "text-white" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
