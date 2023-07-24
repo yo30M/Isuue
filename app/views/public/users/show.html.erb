@@ -8,13 +8,11 @@
           <th><%= @user.name %></th>
         </tr>
       </table>
-
-        <div class='row'>
-          <%= link_to edit_information_path(@user), class: "btn btn-outline-secondary btn-block" do %>
-            <i class="fas fa-user-cog"></i>
+          <% unless @user.guest_user? %>
+            <div class="row">
+              <%= link_to "編集", edit_information_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+            </div>
           <% end %>
-        </div>
-          </div>
     <div class='col-md-8 offset-md-1'>
       <h2>投稿</h2>
       <% @posts.each do |post| %>
