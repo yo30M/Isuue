@@ -10,7 +10,7 @@
       </table>
           <% unless @user.guest_user? %>
             <div class="row">
-              <%= link_to "編集", edit_information_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+              <%= link_to "編集", edit_information_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user.id}" %>
             </div>
           <% end %>
     <div class='col-md-8 offset-md-1'>
