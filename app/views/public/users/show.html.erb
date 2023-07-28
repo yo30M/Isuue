@@ -13,17 +13,10 @@
               <%= link_to "編集", edit_information_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user.id}" %>
             </div>
           <% end %>
+    </div>
     <div class='col-md-8 offset-md-1'>
       <h2>投稿</h2>
-      <% @posts.each do |post| %>
-        <div>
-          <%= link_to post_path(post.id) do %>
-            <%= image_tag post.get_image(100,100) %>
-          <% end %>
-          <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
-        </div>
-      <% end %>
+        <%= render 'public/posts/index',posts: @posts %>
       <%= link_to "いいねした投稿", favorited_posts_path %>
-    </div>
   </div>
 </div>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
    root to: "homes#top"
    get 'users/:user_id/posts' => 'posts#index', as: 'user_posts'
+   get "search" => "searches#search"
    resources :users, only: [:index, :show, :edit, :update]
    resources :posts, only: [:index, :show, :destroy] do
      resources :comments, only: [:destroy]

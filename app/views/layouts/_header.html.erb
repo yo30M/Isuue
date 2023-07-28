@@ -13,10 +13,13 @@
         <!--ログイン後ヘッダー-->
         <% if user_signed_in? %>
           <li>
-            <%= link_to '投稿フォーム', new_post_path, class: 'nav-link text-dark btn btn-light ml-5'  %>
+            <%= link_to '投稿一覧', posts_path, class: 'nav-link text-dark btn btn-light ml-2'  %>
+          </li>
+          <li>
+            <%= link_to '投稿フォーム', new_post_path, class: 'nav-link text-dark btn btn-light ml-2'  %>
           </li>
           <li class="nav-item">
-              <%= link_to "マイページ",mypage_path, class: 'nav-link text-dark btn btn-light ml-5' %>
+              <%= link_to "マイページ",mypage_path, class: 'nav-link text-dark btn btn-light ml-2' %>
           </li>
           <li class="nav-item">
               <%= link_to "ログアウト",destroy_user_session_path, method: :delete, class: 'nav-link text-dark btn btn-light ml-2' %>
@@ -31,9 +34,20 @@
           </div>
               <!--管理者ログイン後ヘッダー-->
         <% elsif admin_signed_in? %>
+          <li>
+            <%= link_to '投稿一覧', admin_posts_path, class: 'nav-link text-dark btn btn-light ml-2'  %>
+          </li>
           <li class="nav-item">
               <%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: 'nav-link text-dark btn btn-light ml-2' %>
           </li>
+          <div class="search_form">
+            <%= form_with url: admin_search_path, local: true, method: :get do |f| %>
+              <%= f.text_field :word %>
+              <%= f.select :range, options_for_select([['User'], ['Post']]) %>
+              <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+              <%= f.submit "検索", class: "btn-sm btn-primary" %>
+            <% end %>
+          </div>
               <% else %>
               <!--共通ログイン前ヘッダー-->
           <li class="nav-item">
