@@ -7,19 +7,19 @@
           <%= f.file_field :image, accept: "image/*" %>
         </div>
         <div class="form-group">
-          <%= f.label :address %>
+          <%= f.label :住所 %>
           <%= f.text_field :address, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :comfort %>
+          <%= f.label :座り心地 %>
           <%= f.text_area :comfort, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :environment %>
+          <%= f.label :周辺情報 %>
           <%= f.text_area :environment, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :tag_list %>
+          <%= f.label :タグ %>
           <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: 'form-control' %>
         </div>
         <div class="form-group">
