@@ -26,12 +26,16 @@
         </tbody>
         <thead>
           <tr>
+            <th>住所</th>
             <th>座り心地</th>
             <th>周辺情報</th>
+            <th>投稿日時</th>
           </tr>
           <tr>
+            <td><%= @post.address %></td>
             <td><%= @post.comfort %></td>
             <td><%= @post.environment %></td>
+            <td><%= @post.created_at %></td>
           </tr>
         </thead>
       </table>

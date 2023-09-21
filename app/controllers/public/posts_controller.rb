@@ -1,4 +1,6 @@
 class Public::PostsController < ApplicationController
+  before_action :ensure_user, only: [:edit, :update, :destroy]
+
   def index
     @posts = Post.all
     if params[:tag_name]
@@ -46,6 +48,12 @@ class Public::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:address, :image, :comfort, :environment, :tag_list)
+  end
+
+  def ensure_user
+    @posts = current_user.posts
+    @post = @posts.find_by(id: params[:id])
+    redirect_to new_post_path
   end
 
 end
