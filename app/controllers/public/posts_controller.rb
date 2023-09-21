@@ -1,8 +1,8 @@
 class Public::PostsController < ApplicationController
-  before_action :ensure_user, only: [:edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
     if params[:tag_name]
       @posts = Post.tagged_with("#{params[:tag_name]}")
     end
@@ -50,10 +50,11 @@ class Public::PostsController < ApplicationController
     params.require(:post).permit(:address, :image, :comfort, :environment, :tag_list)
   end
 
-  def ensure_user
-    @posts = current_user.posts
-    @post = @posts.find_by(id: params[:id])
-    redirect_to new_post_path
+  def ensure_correct_user
+    @post = Post.find(params[:id])
+      unless @post.user == current_user
+        redirect_to posts_path
+      end
   end
 
 end
