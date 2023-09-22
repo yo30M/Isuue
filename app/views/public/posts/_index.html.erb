@@ -5,6 +5,7 @@
       <th>投稿者</th>
       <th>コメント数</th>
       <th>タグ</th>
+      <th>投稿日時</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,7 @@
           </div>
             <% end %>
         </td>
+        <td><%= post.created_at %></td>
       </tr>
     <% end %>
   </tbody>
