@@ -44,8 +44,10 @@
             <%= link_to "編集", edit_post_path(@post), class: "btn btn-primary" %>
             <%= link_to "削除", post_path(@post), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger" %>
           <% end %>
-          <div class=<%= "favorite-" +  @post.id.to_s %> >
-            <%= render 'public/favorites/favorite', post: @post %>
+          <div id="post_<%= @post.id %>">
+            <div class="favorite-btn">
+              <%= render 'public/favorites/favorite', post: @post %>
+            </div>
           </div>
         </div>
       <div>
