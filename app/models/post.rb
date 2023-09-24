@@ -9,8 +9,8 @@ class Post < ApplicationRecord
   has_many :favorited_users, through: :favorites, source: :user
 
   validates :address, presence: true
-  validates :comfort, presence: true
-  validates :environment, presence: true
+  validates :comfort, presence: true, length: { maximum: 100 }
+  validates :environment, presence: true, length: { maximum: 100 }
 
   def get_image(width, height)
     unless image.attached?

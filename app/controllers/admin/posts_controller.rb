@@ -2,7 +2,7 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
     if params[:tag_name]
       @posts = Post.tagged_with("#{params[:tag_name]}")
     end

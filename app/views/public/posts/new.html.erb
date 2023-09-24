@@ -8,19 +8,19 @@
         </div>
         <div class="form-group">
           <%= f.label :住所 %>
-          <%= f.text_field :address, class: 'form-control' %>
+          <%= f.text_field :address, class: 'form-control', placeholder: "例;東京都○○区○○" %>
         </div>
         <div class="form-group">
           <%= f.label :座り心地 %>
-          <%= f.text_area :comfort, class: 'form-control' %>
+          <%= f.text_area :comfort, class: 'form-control', placeholder: "例;木製、日当たり良し。" %>
         </div>
         <div class="form-group">
           <%= f.label :周辺情報 %>
-          <%= f.text_area :environment, class: 'form-control' %>
+          <%= f.text_area :environment, class: 'form-control', placeholder: "例;周辺にコンビニ有" %>
         </div>
         <div class="form-group">
           <%= f.label :タグ %>
-          <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: 'form-control' %>
+          <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: 'form-control', placeholder: "例;駅ナカ,商業施設" %>
         </div>
         <div class="form-group">
           <%= f.submit "投稿", class: 'btn btn-success' %>
