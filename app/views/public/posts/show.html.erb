@@ -52,19 +52,12 @@
         </div>
       <div>
         <p>コメント件数：<%= @post.comments.count %></p>
-          <% @post.comments.each do |comment| %>
-            <%= comment.user.name %>
-            <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-            <% if comment.user == current_user %>
-              <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger" %>
-            <% end %>
-          <% end %>
+          <div id="post-comments">
+            <%= render "public/comments/index", { post: @post , comment: @comment } %>
+          </div>
       </div>
-      <div>
-        <%= form_with model: [@post, @comment] do |f| %>
-          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-          <%= f.submit "送信する" %>
-        <% end %>
+      <div id="comment-form">
+        <%= render "public/comments/form", { post: @post , comment: @comment } %>
       </div>
     </div>
   </div>
