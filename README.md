@@ -18,6 +18,10 @@
 ​
 ## 設計書
 <https://docs.google.com/spreadsheets/d/1hKY7qI9aybee5ET-w5Baaz_7OP-kPyV5WnQk3VEgpKw/edit#gid=0>
+
+##AWS構成図
+![AWS構成図](https://github.com/yo30M/Isuue/assets/129662479/2d608c9f-b729-43b7-975b-e38b993d9420)
+
 ​
 ## 開発環境
 - OS：Linux(CentOS)
