@@ -18,7 +18,6 @@
 ​
 ## 設計書
 <https://docs.google.com/spreadsheets/d/1hKY7qI9aybee5ET-w5Baaz_7OP-kPyV5WnQk3VEgpKw/edit#gid=0>
-
 ​
 ## 開発環境
 - OS：Linux(CentOS)
