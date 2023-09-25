@@ -17,6 +17,7 @@
 腰を下ろしたいが座り心地や環境、治安等が気になる時
 ​
 ## 設計書
+<https://docs.google.com/spreadsheets/d/1hKY7qI9aybee5ET-w5Baaz_7OP-kPyV5WnQk3VEgpKw/edit#gid=0>
 
 ​
 ## 開発環境
@@ -26,8 +27,5 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 ​
-## 使用素材
-- 使用検討中です。
-
 ## カテゴリー
 コミュニティサイト
